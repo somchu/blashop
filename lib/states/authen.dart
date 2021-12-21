@@ -2,6 +2,7 @@ import 'package:blashop/utility/my_constant.dart';
 import 'package:blashop/widgets/show_image.dart';
 import 'package:blashop/widgets/show_title.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Authen extends StatefulWidget {
   const Authen({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class Authen extends StatefulWidget {
 }
 
 class _AuthenState extends State<Authen> {
+  bool StsRedEye = true;
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width;
@@ -21,6 +23,7 @@ class _AuthenState extends State<Authen> {
             buildimage(size),
             buildtitle(),
             buildUser(size),
+            buildPassword(size),
           ],
         ),
       ),
@@ -36,7 +39,55 @@ class _AuthenState extends State<Authen> {
           width: size * 0.6,
           child: TextFormField(
             decoration: InputDecoration(
-              enabledBorder: OutlineInputBorder(),
+              labelText: 'User:',
+              labelStyle: MyConstant().h3style(),
+              contentPadding: EdgeInsets.fromLTRB(25, 25, 25, 0),
+              prefixIcon: Icon(
+                Icons.account_circle,
+                color: MyConstant.primary,
+                size: 30,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: MyConstant.primary),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: MyConstant.dark),
+                borderRadius: BorderRadius.circular(30),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
+  Row buildPassword(double size) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          margin: EdgeInsets.only(top: 16),
+          width: size * 0.6,
+          child: TextFormField(
+            obscureText: StsRedEye,
+            decoration: InputDecoration(
+              labelText: 'Password:',
+              labelStyle: MyConstant().h3style(),
+              contentPadding: EdgeInsets.fromLTRB(25, 25, 25, 0),
+              prefixIcon: Icon(
+                Icons.vpn_key,
+                color: MyConstant.primary,
+                size: 30,
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: MyConstant.primary),
+                borderRadius: BorderRadius.circular(30),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: MyConstant.dark),
+                borderRadius: BorderRadius.circular(30),
+              ),
             ),
           ),
         ),
