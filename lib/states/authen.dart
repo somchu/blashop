@@ -16,17 +16,45 @@ class _AuthenState extends State<Authen> {
   @override
   Widget build(BuildContext context) {
     double size = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return Scaffold(
       body: SafeArea(
-        child: ListView(
-          children: [
-            buildimage(size),
-            buildtitle(),
-            buildUser(size),
-            buildPassword(size),
-          ],
+        child: GestureDetector(
+          //focusscope เพื่อให้สามารถเก็บ keyboard ไม่ว่าจะ click ที่ไหนก็ตาม
+          onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
+          behavior: HitTestBehavior.opaque,
+          child: ListView(
+            children: [
+              buildimage(size),
+              buildtitle(),
+              buildUser(size),
+              buildPassword(size),
+              buildlogin(size, h)
+            ],
+          ),
         ),
       ),
+    );
+  }
+
+  Row buildlogin(double size, double h) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          margin: EdgeInsets.symmetric(vertical: 16),
+          width: size * 0.6,
+          height: h * 0.08,
+          child: ElevatedButton(
+            style: MyConstant().mybuttonstyle(),
+            onPressed: () {},
+            child: Text(
+              'เข้าสู่ระบบ',
+              style: TextStyle(fontSize: 20),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -72,6 +100,22 @@ class _AuthenState extends State<Authen> {
           child: TextFormField(
             obscureText: StsRedEye,
             decoration: InputDecoration(
+              suffixIcon: IconButton(
+                onPressed: () {
+                  setState(() {
+                    StsRedEye = !StsRedEye;
+                  });
+                },
+                icon: StsRedEye
+                    ? Icon(
+                        Icons.visibility_off,
+                        color: MyConstant.dark,
+                      )
+                    : Icon(
+                        Icons.visibility,
+                        color: MyConstant.dark,
+                      ),
+              ),
               labelText: 'Password:',
               labelStyle: MyConstant().h3style(),
               contentPadding: EdgeInsets.fromLTRB(25, 25, 25, 0),
