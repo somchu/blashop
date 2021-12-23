@@ -29,11 +29,35 @@ class _AuthenState extends State<Authen> {
               buildtitle(),
               buildUser(size),
               buildPassword(size),
-              buildlogin(size, h)
+              buildlogin(size, h),
+              bulidcreateaccount()
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Row bulidcreateaccount() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        ShowTitle(
+          title: 'Non Account?',
+          textStyle: MyConstant().h2style(),
+        ),
+        TextButton(
+          onPressed: () =>
+              Navigator.pushNamed(context, MyConstant.RouteCreateAcount),
+          child: Text(
+            'Create Account',
+            style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
+        )
+      ],
     );
   }
 

@@ -12,9 +12,9 @@ import 'package:google_fonts/google_fonts.dart';
 final Map<String, WidgetBuilder> map = {
   '/authen': (BuildContext context) => const Authen(),
   '/createaccount': (BuildContext context) => const CreateAccount(),
-  'buyerservice': (BuildContext context) => const BuyerService(),
-  'salerservice': (BuildContext context) => const SalerService(),
-  'riderservice': (BuildContext context) => const RiderService(),
+  '/buyerservice': (BuildContext context) => const BuyerService(),
+  '/salerservice': (BuildContext context) => const SalerService(),
+  '/riderservice': (BuildContext context) => const RiderService(),
 };
 
 String? initialRoute; //? การประกาศตัวแปรที่อนุญาตให้มีค่าเป็น null ได้

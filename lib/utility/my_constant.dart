@@ -10,9 +10,9 @@ class MyConstant {
   // ignore: non_constant_identifier_names
   static String RouteAuthen = "/authen";
   static String RouteCreateAcount = "/createaccount";
-  static String RouteBuyerService = "buyerservice";
-  static String RouteSalerService = "salerservice";
-  static String RouteRiderService = "riderservice";
+  static String RouteBuyerService = "/buyerservice";
+  static String RouteSalerService = "/salerservice";
+  static String RouteRiderService = "/riderservice";
 
   //Image path
   static String imgaccount = "images/account.png";
