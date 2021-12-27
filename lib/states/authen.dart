@@ -68,7 +68,7 @@ class _AuthenState extends State<Authen> {
         Container(
           margin: EdgeInsets.symmetric(vertical: 16),
           width: size * 0.6,
-          height: h * 0.08,
+          height: h * 0.06,
           child: ElevatedButton(
             style: MyConstant().mybuttonstyle(),
             onPressed: () {},
@@ -90,6 +90,7 @@ class _AuthenState extends State<Authen> {
           margin: EdgeInsets.only(top: 16),
           width: size * 0.6,
           child: TextFormField(
+            controller: ,
             decoration: InputDecoration(
               labelText: 'User:',
               labelStyle: MyConstant().h3style(),

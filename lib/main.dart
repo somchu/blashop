@@ -1,11 +1,12 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
 import 'package:blashop/states/authen.dart';
 import 'package:blashop/states/buyer_service.dart';
 import 'package:blashop/states/create_account.dart';
 import 'package:blashop/states/rider_service.dart';
 import 'package:blashop/states/saler_service.dart';
 import 'package:blashop/utility/my_constant.dart';
-import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 //final ประกาศแล้วไม่สามารถแก้ไขได้
 //map ค่าชื่อ state เข้ากับ stateful เพื่อใช้เป็นเ route ในการเปลี่ยนหน้าจอ
