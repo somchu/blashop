@@ -90,7 +90,7 @@ class _AuthenState extends State<Authen> {
           margin: EdgeInsets.only(top: 16),
           width: size * 0.6,
           child: TextFormField(
-            controller: ,
+   
             decoration: InputDecoration(
               labelText: 'User:',
               labelStyle: MyConstant().h3style(),
