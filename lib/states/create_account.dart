@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:blashop/utility/my_constant.dart';
+import 'package:blashop/widgets/show_image.dart';
 import 'package:blashop/widgets/show_title.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class _CreateAccountState extends State<CreateAccount> {
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: Text("Create New Account"),
+        title: const Text("Create New Account"),
         centerTitle: true,
         backgroundColor: MyConstant.primary,
       ),
@@ -39,9 +40,56 @@ class _CreateAccountState extends State<CreateAccount> {
             buildPhone(size),
             buildUser(size),
             buildPassword(size),
+            Padding(
+              padding: EdgeInsets.only(top: 20.0),
+              child: buildSubTitle(),
+            ),
+            Padding(
+              padding:   EdgeInsets.only(top: size*0.1),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.add_a_photo,
+                      size: size * 0.1,
+                      color: MyConstant.primary,
+                    ),
+                  ),
+                  Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: MyConstant.primary),
+                    ),
+                    width: size * 0.3,
+                    //margin: EdgeInsets.symmetric(vertical: size * 0.1),
+                    child: ShowImage(
+                      imagepath: MyConstant.imgavarta,
+                    ),
+                  ),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.add_photo_alternate,
+                      size: size * 0.1,
+                      color: MyConstant.primary,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
+    );
+  }
+
+  ShowTitle buildSubTitle() {
+    return ShowTitle(
+      title:
+          'แสดงรูปภาพเพื่อยืนยันตัวตนของผู้สมัคร หากไม่ระบุระบบจะแสดงรูป default แทน',
+      textStyle: MyConstant().h3style(),
     );
   }
 
@@ -164,13 +212,14 @@ Widget buildAddress(double size) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        margin: EdgeInsets.only(top: 16),
+        margin: const EdgeInsets.only(top: 16),
         width: size * 0.6,
         child: TextFormField(
           maxLines: 3,
           decoration: InputDecoration(
-            hintText: 'Address:',
-            hintStyle: MyConstant().h3style(),
+            alignLabelWithHint: true,
+            labelText: 'Address:',
+            labelStyle: MyConstant().h3style(),
             prefixIcon: Padding(
               padding: const EdgeInsets.fromLTRB(0, 0, 0, 50),
               child: Icon(
@@ -178,7 +227,7 @@ Widget buildAddress(double size) {
                 color: MyConstant.dark,
               ),
             ),
-            contentPadding: EdgeInsets.fromLTRB(25, 25, 25, 0),
+            contentPadding: const EdgeInsets.fromLTRB(25, 25, 25, 0),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: MyConstant.primary),
               borderRadius: BorderRadius.circular(30),
@@ -199,7 +248,7 @@ Widget buildUser(double size) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        margin: EdgeInsets.only(top: 16),
+        margin: const EdgeInsets.only(top: 16),
         width: size * 0.6,
         child: TextFormField(
           decoration: InputDecoration(
@@ -209,7 +258,7 @@ Widget buildUser(double size) {
               Icons.account_box,
               color: MyConstant.dark,
             ),
-            contentPadding: EdgeInsets.fromLTRB(25, 25, 25, 0),
+            contentPadding: const EdgeInsets.fromLTRB(25, 25, 25, 0),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: MyConstant.primary),
               borderRadius: BorderRadius.circular(30),
@@ -230,7 +279,7 @@ Widget buildPhone(double size) {
     mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
-        margin: EdgeInsets.only(top: 16),
+        margin: const EdgeInsets.only(top: 16),
         width: size * 0.6,
         child: TextFormField(
           decoration: InputDecoration(
@@ -240,7 +289,7 @@ Widget buildPhone(double size) {
               Icons.phone_android,
               color: MyConstant.dark,
             ),
-            contentPadding: EdgeInsets.fromLTRB(25, 25, 25, 0),
+            contentPadding: const EdgeInsets.fromLTRB(25, 25, 25, 0),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(color: MyConstant.primary),
               borderRadius: BorderRadius.circular(30),

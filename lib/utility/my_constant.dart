@@ -20,6 +20,7 @@ class MyConstant {
   static String imgbuyer = "images/buyer.png";
   static String imgrider = "images/rider.png";
   static String imgsaler = "images/saler.png";
+  static String imgavarta = "images/avarta.png";
 
   // Color
   static Color primary = Color(0xff25a59a);
